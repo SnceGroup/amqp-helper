@@ -1,0 +1,19 @@
+version: '3'
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "${RABBITMQ_PORT}:${RABBITMQ_PORT}"
+
+  node:
+    container_name: node
+    build: .
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      - MESSAGE_BROKER=rabbitmq
+    links:
+      - rabbitmq
+    restart: on-failure
