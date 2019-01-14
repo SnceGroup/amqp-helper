@@ -10,11 +10,15 @@ Still to be published on NPM.
 
 The library works by pushing and retrieving messages from the message broker identified by the environment variable `MESSAGE_BROKER`.
 `MESSAGE_BROKER` can be whatever you use to identify the message broker host (IP address or hostname).
+The optional environment variables `RABBITMQ_USER` and `RABBITMQ_PASS` are used to authenticate to the `MESSAGE_BROKER`.
+Docker Secrets are supported for storing `RABBITMQ_USER` and `RABBITMQ_PASS`;
 
-If you're using docker, it's enough to define the env variable into the docker-compose.yml:
+If you're using docker, it's enough to define the env variables into the docker-compose.yml:
 ```
   environment:
     - MESSAGE_BROKER=rabbitmq # in this case rabbitmq is the name of another container
+    - RABBITMQ_USER=username
+    - RABBITMQ_PASS=password
 ```
 
 ## Usage
