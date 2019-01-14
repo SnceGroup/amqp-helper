@@ -57,8 +57,7 @@ mq.consume({
 
 In this case the communication is handled by defining an exchange instead of a queue.
 
-
-#### Publish a message
+#### Publish a message
 
 ```
 const mq = require('amqp-helper');
